@@ -28,7 +28,6 @@ end
 
 group :production do
   gem 'irbtools', require: false
-  gem 'faker'
 end
 
 # Use ActiveModel has_secure_password
