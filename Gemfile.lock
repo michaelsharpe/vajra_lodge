@@ -182,6 +182,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.1.1)
       json (~> 1.4)
+    role_model (0.8.1)
     ruby_engine (1.0.1)
     ruby_info (1.0.1)
     ruby_version (1.0.1)
@@ -242,6 +243,7 @@ DEPENDENCIES
   pry
   rack-livereload
   rails (= 4.0.2)
+  role_model
   sass-rails (~> 4.0.0)
   sdoc
   sorcery
