@@ -1,0 +1,12 @@
+<div class="feed row">
+  <div class="columns large-centered large-9">
+    <% @posts.each do |post| %>
+      <section>
+        <%= link_to "#{post.user.username}", user_path(post.user) %>
+        <%= post.degree %>&deg;
+        <br>
+        <%= post.content %>
+      </section>
+    <% end %>
+  </div>
+</div>
