@@ -1,3 +1,12 @@
-<%= @user.username %>
-<br>
-<%= @user.email %>
+<div class="row">
+  <div class="columns large-6">
+    <h3><%= @user.username %><%= @user.degree %>&deg;</h3>
+    <p><%= @user.email %></p>
+    <% if @user.roles.length > 0 %>
+      <h6>Role(s):</h6>
+      <% @user.roles.each do |role| %>
+        <p><%= role %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>

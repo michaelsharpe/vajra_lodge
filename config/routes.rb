@@ -4,6 +4,7 @@ VajraLodge::Application.routes.draw do
   post 'logout' => 'sessions#destroy', :as => :logout
 
   resources :users
+  resources :posts
   resources :sessions, only: [:new, :create, :destroy]
 
 

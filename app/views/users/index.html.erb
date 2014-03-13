@@ -1,7 +1,7 @@
 <% @users.each do |user| %>
   <div class="row">
     <div class="columns large-6">
-      <h3><%= user.username %></h3>
+      <h3><%= user.username %> <%= user.degree %>&deg;</h3>
       <p><%= user.email %></p>
       <% if user.roles.length > 0 %>
         <h6>Role(s):</h6>
