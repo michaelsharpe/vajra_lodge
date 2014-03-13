@@ -1,16 +1,16 @@
-<%= link_to "Create new user", new_user_path %>
-
-<%= form_for @user, url: {action: "create"} do %>
-  <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
-  <div class="field">
-    <%= text_field_tag :username, params[:username], placeholder: "Username", class: "signin-field" %>
+<div class="row">
+  <div class="large-6 columns large-centered">
+    <%= form_for @user, url: {action: "create"} do %>
+      <% flash.each do |name, msg| -%>
+          <%= content_tag :div, msg, class: name %>
+        <% end -%>
+      <div class="field">
+        <%= text_field_tag :username, params[:username], placeholder: "Username", class: "signin-field" %>
+      </div>
+      <div class="field">
+        <%= password_field_tag :password, params[:password], placeholder: "Password", class: "signin-field" %>
+      </div>
+      <%= submit_tag "Sign in", class: "button" %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= password_field_tag :password, params[:password], placeholder: "Password", class: "signin-field" %>
-  </div>
-  <div class="actions">
-    <%= submit_tag "Sign in", class: "button small round" %>
-  </div>
-<% end %>
+</div>

@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-    before_filter :require_login 
+    before_filter :require_login, :except => [:new, :create]
 
     def index
-      @user = User.all
+      @users = User.all
     end
   
     def show
@@ -16,6 +16,8 @@ class UsersController < ApplicationController
     def create
       @user = User.new user_params
       if @user.save
+        auto_login(@user)
+        flash[:success] = "Welcome, #{@user.username}!"
         redirect_to @user, notice: "User successfully created"
       else
         render "new"
