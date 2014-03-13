@@ -16,9 +16,4 @@ class SessionsController < ApplicationController
       logout
       redirect_to(root_url, notice: "You are now logged out.") 
     end
-
-    private
-    def session_params
-      params.require(:user).permit(:username, :password)
-    end
 end
