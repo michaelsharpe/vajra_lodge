@@ -5,10 +5,11 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates :password_confirmation, presence: true
   validates_presence_of :degree
+  validates_uniqueness_of :email
 
   include RoleModel
   roles_attribute :roles_mask
-  roles :admin, :secretary, :treasurer
+  roles :Admin, :Secretary, :Treasurer
 
   has_many :posts
 end
