@@ -1,7 +1,3 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 .feed section {
   margin: 2em 0;
   padding: 1.6em 0;
@@ -11,4 +7,9 @@
 
 .feed select {
   width: 4em;
+}
+
+.datestamp {
+  color: #666;
+  font-size: 0.8em;
 }

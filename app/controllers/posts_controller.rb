@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     def index
-      @posts = Post.where("degree <= ?", current_user.degree)
+      @posts = Post.where("degree <= ?", current_user.degree).order(created_at: :desc)
       @post = Post.new
     end
   
