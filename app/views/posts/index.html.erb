@@ -1,5 +1,24 @@
 <div class="feed row">
   <div class="columns large-centered large-9">
+    <%= form_for @post do |f| %>
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@post.errors.count, "error") %> prohibited this review from being saved.</h2>
+          <ul>
+            <% @post.errors.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <h4>New Post</h4>
+      <%= f.label :degree %>
+      <%= f.collection_select :degree, Post::DEGREES, :to_i, :humanize %>
+      <%= f.text_area :content %>
+      <%= f.submit "Post", :class => "button" %>
+    <% end %>
+  </div>
+  <div class="columns large-centered large-9">
     <% @posts.each do |post| %>
       <section>
         <h4><%= post.degree %>&deg;</h4>

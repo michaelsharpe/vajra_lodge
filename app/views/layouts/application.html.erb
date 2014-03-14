@@ -16,7 +16,7 @@
       <% if current_user %>
         <ul class="title-area">
           <li class="name">
-            <h1><a href="#"><%= current_user.degree %>&deg;</a></h1>
+            <h1><%= link_to "#{current_user.username} #{current_user.degree}°", user_path(current_user) %></h1>
           </li>
         </ul>
       <% end %>
@@ -25,7 +25,6 @@
         <ul class="right">
         <% if current_user %>
           <li><%= link_to "Feed", posts_path %></li>
-          <li><%= link_to "Profile", user_path(current_user) %></li>
           <li><%= link_to "Log out", logout_path, {method: "post"} %></li>
         <% else %>
           <li><%= link_to "Create new user", new_user_path %></li>

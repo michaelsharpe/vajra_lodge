@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
     def index
       @posts = Post.where("degree <= ?", current_user.degree)
+      @post = Post.new
     end
   
     def show
