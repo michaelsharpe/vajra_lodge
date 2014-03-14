@@ -13,6 +13,14 @@
 
   <body>
     <nav class="top-bar">
+      <% if current_user %>
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#"><%= current_user.degree %>&deg;</a></h1>
+          </li>
+        </ul>
+      <% end %>
+
       <section class="top-bar-section">
         <ul class="right">
         <% if current_user %>
