@@ -1,5 +1,13 @@
-h6 {
-  font-weight: bolder;
+.feed {
+  h4, h5, h6 {
+    font-weight: bolder;
+  }
+  h4 {
+    margin-right: 0.6em;
+  }
+  h4, h6 {
+    display: inline-block;
+  }
 }
 
 .comment {
