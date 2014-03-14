@@ -11,6 +11,15 @@ class PostsController < ApplicationController
     end
   
     def create
+      @post = Post.create(post_params)
+      @post.user_id = current_user.id
+
+      if @post.save
+        redirect_to(:feed, notice: "Posted")
+      else
+        flash.now[:alert] = "Post failed"
+        render "new"
+      end
     end
   
     def edit
@@ -20,5 +29,10 @@ class PostsController < ApplicationController
     end
   
     def destroy
+    end
+
+    private
+    def post_params
+        params.require(:post).permit(:degree, :content)
     end
 end
