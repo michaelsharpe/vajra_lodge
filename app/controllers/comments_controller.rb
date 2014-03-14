@@ -23,12 +23,25 @@ class CommentsController < ApplicationController
   end
 
   def edit
+    @comment = Comment.find(params[:id])
   end
 
   def update
+    @comment = Comment.find(params[:id])
+
+    if @comment.update_attributes(comment_params)
+      redirect_to("/feed##{@post.id}", notice: "Updated.")
+    else
+      flash.now[:alert] = "Edit failed"
+      render "edit"
+    end
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+
+    redirect_to :feed
   end
 
   private
