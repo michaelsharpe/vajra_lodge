@@ -1,0 +1,30 @@
+<div class="columns large-centered large-9">
+  <section class="post">
+    <h4><%= link_to "#{@post.degree}°", feed_path(degree: "#{@post.degree}") %></h4>
+    <h6><%= link_to "#{@post.user.username}", user_path(@post.user) %></h6>
+    <a href="#" data-dropdown="drop<%= @post.id %>" class="tiny button dropdown"></a><br>
+    <ul id="drop<%= @post.id %>" data-dropdown-content class="f-dropdown">
+      <li><%= link_to "Edit Post", edit_post_path(@post) %></li>
+      <li><%= link_to "Delete Post", @post, { method: "delete" } %></li>
+    </ul>
+    <p class="datestamp"><%= @post.created_at.to_s(:long) %></p>
+    <br>
+    <%= @post.content %>
+    <br>
+    <% if @post.comments.length > 0 %>
+    <h5>Comments:</h5>
+      <ul class="comments">
+        <% @post.comments.each do |comment| %>
+          <li class="comment">
+            <h6><%= link_to "#{comment.user.username}", user_path(comment.user) %></h6>
+            <p><%= comment.content %></p>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= form_for ([@post, @comment]) do |f| %>
+      <%= f.text_field :content %>
+      <%= f.submit "Comment", class: "tiny button" %>
+    <% end %>
+  </section>
+</div>

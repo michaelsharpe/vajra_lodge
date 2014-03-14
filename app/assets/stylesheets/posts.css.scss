@@ -1,11 +1,24 @@
-.feed section {
-  margin: 2em 0;
-  padding: 1.6em 0;
-  border-top: 1px solid #999;
+.feed {
+  section {
+    margin: 2em 0;
+    padding: 1.6em 0;
+    border-top: 1px solid #999;
+  }
 }
 
-.feed select {
-  width: 4em;
+.post {
+  h4, h5, h6 {
+    font-weight: bolder;
+  }
+  h4 {
+    margin-right: 0.6em;
+  }
+  h4, h6 {
+    display: inline-block;
+  }
+  select {
+    width: 4em;
+  }
 }
 
 .datestamp {

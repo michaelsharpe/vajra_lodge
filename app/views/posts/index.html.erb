@@ -3,7 +3,6 @@
   <div class="columns large-centered large-9">
     <% @posts.each do |post| %>
       <section class="post">
-        <%= post.id %>
         <h4><%= link_to "#{post.degree}°", feed_path(degree: "#{post.degree}") %></h4>
         <h6><%= link_to "#{post.user.username}", user_path(post.user) %></h6>
         <a href="#" data-dropdown="drop<%= post.id %>" class="tiny button dropdown"></a><br>
@@ -25,6 +24,10 @@
               </li>
             <% end %>
           </ul>
+        <% end %>
+        <%= form_for ([post, post.comments.build]) do |f| %>
+          <%= f.text_field :content %>
+          <%= f.submit "Comment", class: "tiny button" %>
         <% end %>
       </section>
     <% end %>

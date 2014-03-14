@@ -9,6 +9,10 @@ class PostsController < ApplicationController
     end
   
     def show
+      @post = Post.find(params[:id])
+      binding.pry
+      @comments = Comment.where("post_id = ?", params[:id])
+      @comment = @post.comments.build
     end
   
     def new

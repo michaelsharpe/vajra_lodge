@@ -5,7 +5,9 @@ VajraLodge::Application.routes.draw do
   get 'feed' => 'posts#index', :as => :feed
 
   resources :users
-  resources :posts
+  resources :posts do
+    resources :comments, :except => [:index]    
+  end
   resources :sessions, only: [:new, :create, :destroy]
 
 
