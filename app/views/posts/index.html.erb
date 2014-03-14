@@ -2,10 +2,22 @@
   <div class="columns large-centered large-9">
     <% @posts.each do |post| %>
       <section>
-        <%= link_to "#{post.user.username}", user_path(post.user) %>
-        <%= post.degree %>&deg;
+        <h4><%= link_to "#{post.user.username}", user_path(post.user) %>
+        <%= post.degree %>&deg;</h4>
         <br>
         <%= post.content %>
+        <br>
+        <% if post.comments.length > 0 %>
+        <h5>Comments:</h5>
+          <ul class="comments">
+            <% post.comments.each do |c| %>
+              <li class="comment">
+                <h6><%= link_to "#{c.user.username}", user_path(c.user) %></h6>
+                <p><%= c.content %></p>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
       </section>
     <% end %>
   </div>

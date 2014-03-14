@@ -16,3 +16,9 @@ end
 100.times do |i|
   Post.create!(user_id: r.rand(1..5), degree: r.rand(1..33), content: Faker::Lorem.paragraphs(r.rand(1..5)).join("\n\n"))
 end
+
+200.times do |i|
+  post = r.rand(1..100)
+  comment = Post.find(post).comments.build(post_id: post, user_id: r.rand(1..5), content: Faker::Lorem.paragraphs(r.rand(1..3)).join("\n"))
+  comment.save
+end

@@ -12,4 +12,5 @@ class User < ActiveRecord::Base
   roles :Admin, :Secretary, :Treasurer
 
   has_many :posts
+  has_many :comments
 end
