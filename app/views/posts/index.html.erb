@@ -2,9 +2,15 @@
   <%= render "new" %>
   <div class="columns large-centered large-9">
     <% @posts.each do |post| %>
-      <section>
+      <section class="post">
+        <%= post.id %>
         <h4><%= link_to "#{post.degree}°", feed_path(degree: "#{post.degree}") %></h4>
         <h6><%= link_to "#{post.user.username}", user_path(post.user) %></h6>
+        <a href="#" data-dropdown="drop<%= post.id %>" class="tiny button dropdown"></a><br>
+        <ul id="drop<%= post.id %>" data-dropdown-content class="f-dropdown">
+          <li><%= link_to "Edit Post", edit_post_path(post) %></li>
+          <li><%= link_to "Delete Post", post, { method: "delete" } %></li>
+        </ul>
         <p class="datestamp"><%= post.created_at.to_s(:long) %></p>
         <br>
         <%= post.content %>

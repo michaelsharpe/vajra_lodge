@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
     def index
-      # binding.pry
       if params[:degree]
         @posts = Post.where("degree = ?", params[:degree]).order(created_at: :desc)    
       else
@@ -13,6 +12,7 @@ class PostsController < ApplicationController
     end
   
     def new
+      @post = Post.new
     end
   
     def create
@@ -28,12 +28,25 @@ class PostsController < ApplicationController
     end
   
     def edit
+      @post = Post.find(params[:id])
     end
   
     def update
+      @post = Post.find(params[:id])
+
+      if @post.update_attributes(post_params)
+        redirect_to(:feed, notice: "Updated.")
+      else
+        flash.now[:alert] = "Edit failed"
+        render "edit"
+      end
     end
   
     def destroy
+      @post = Post.find(params[:id])
+      @post.destroy
+
+      redirect_to :feed
     end
 
     private
