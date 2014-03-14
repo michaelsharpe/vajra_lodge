@@ -1,6 +1,11 @@
 class PostsController < ApplicationController
     def index
-      @posts = Post.where("degree <= ?", current_user.degree).order(created_at: :desc)
+      # binding.pry
+      if params[:degree]
+        @posts = Post.where("degree = ?", params[:degree]).order(created_at: :desc)    
+      else
+        @posts = Post.where("degree <= ?", current_user.degree).order(created_at: :desc)
+      end
       @post = Post.new
     end
   
