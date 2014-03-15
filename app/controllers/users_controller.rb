@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   
     def create
       @user = User.new user_params
+      @user.disabled = "false"
       if @user.save
         auto_login(@user)
         flash[:success] = "Welcome, #{@user.username}!"
@@ -39,7 +40,31 @@ class UsersController < ApplicationController
       end
     end
   
-    def destroy
+    def disable
+      @user = User.find(params[:id])
+      if @user.update_attribute(:disabled, true)
+        if current_user == @user
+          logout
+          redirect_to(root_url, notice: "Your account has been disabled.\nTo reactivate it, please speak with an admin.")
+        else
+          flash.now[:notice] = "#{@user.username} has been disabled"
+          render :show
+        end
+      else
+        flash.now[:alert] = "Failed to disable #{@user.username}."
+        render :show
+      end
+    end
+
+    def enable
+      @user = User.find(params[:id])
+      if @user.update_attribute(:disabled, false)
+        flash.now[:notice] = "#{@user.username} has been enabled"
+        render :show
+      else
+        flash.now[:alert] = "Failed to enable #{@user.username}"
+        render :show
+      end
     end
 
     private

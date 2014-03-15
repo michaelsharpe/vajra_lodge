@@ -19,5 +19,12 @@
     <% end %>
     <hr>
     <p><span>Bio:</span><%= @user.bio %></p>
+    <% if current_user == @user || can?(:manage, @user) %>
+      <% if !@user.disabled %>
+        <%= link_to "Disable Account", disable_path(@user), {method: "post",class: "tiny button alert"} %>
+      <% else %>
+        <%= link_to "Enable Account", enable_path(@user), {method: "post", class: "tiny button success"} %>
+      <% end %>
+    <% end %>
   </div>
 </div>
