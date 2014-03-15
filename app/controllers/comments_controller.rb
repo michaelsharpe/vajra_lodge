@@ -2,15 +2,6 @@ class CommentsController < ApplicationController
   before_filter :load_post
   before_filter :require_login
 
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
   def create
     @comment = @post.comments.build(comment_params)
     @comment.user_id = current_user.id
