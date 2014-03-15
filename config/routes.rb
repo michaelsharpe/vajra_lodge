@@ -3,6 +3,7 @@ VajraLodge::Application.routes.draw do
   get 'login' => 'sessions#new', :as => :login
   post 'logout' => 'sessions#destroy', :as => :logout
   get 'feed' => 'posts#index', :as => :feed
+  
 
   resources :users
   resources :posts
