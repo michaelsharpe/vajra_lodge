@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+    before_filter :require_login
+
     def index
       if params[:degree]
         @posts = Post.where("degree = ?", params[:degree]).order(created_at: :desc)    
@@ -10,7 +12,6 @@ class PostsController < ApplicationController
   
     def show
       @post = Post.find(params[:id])
-      binding.pry
       @comments = Comment.where("post_id = ?", params[:id])
       @comment = @post.comments.build
     end

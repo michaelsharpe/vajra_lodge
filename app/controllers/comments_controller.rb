@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_filter :load_post
+  before_filter :require_login
 
   def index
   end
@@ -15,10 +16,10 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to :feed
+      redirect_to "/feed##{@post.id}"
     else
       flash.now[:alert] = "Cannot post an empty comment"
-      render "posts/show"
+      redirect_to "/posts/#{@post.id}"
     end
   end
 
@@ -30,7 +31,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
 
     if @comment.update_attributes(comment_params)
-      redirect_to("/feed##{@post.id}", notice: "Updated.")
+      redirect_to("/feed##{@post.id}")
     else
       flash.now[:alert] = "Edit failed"
       render "edit"

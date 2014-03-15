@@ -7,16 +7,26 @@
       <li><%= link_to "Edit Post", edit_post_path(@post) %></li>
       <li><%= link_to "Delete Post", @post, { method: "delete" } %></li>
     </ul>
-    <p class="datestamp"><%= @post.created_at.to_s(:long) %></p>
+    <p class="datestamp"><%= @post.created_at.to_s(:long_ordinal) %></p>
     <br>
     <%= @post.content %>
     <br>
-    <% if @post.comments.length > 0 %>
+    <% if @comments.length > 0 %>
     <h5>Comments:</h5>
       <ul class="comments">
-        <% @post.comments.each do |comment| %>
+        <% @comments.each do |comment| %>
           <li class="comment">
             <h6><%= link_to "#{comment.user.username}", user_path(comment.user) %></h6>
+            <% if current_user == comment.user || current_user == @post.user %>
+              <a href="#" data-dropdown="drop<%= comment.id %>" class="tiny button dropdown"></a><br>
+              <ul id="drop<%= comment.id %>" data-dropdown-content class="f-dropdown">
+                <% if current_user == comment.user %>
+                  <li><%= link_to "Edit Comment", edit_post_comment_path(post_id: "#{comment.post_id}", id: "#{comment.id}") %></li>
+                <% end %>
+                <li><%= link_to "Delete Comment", "/posts/#{comment.post_id}/comments/#{comment.id}", { method: "delete" } %></li>
+              </ul>
+            <% end %>
+            <p class="datestamp"><%= comment.created_at.to_s(:long_ordinal) %></p>
             <p><%= comment.content %></p>
           </li>
         <% end %>

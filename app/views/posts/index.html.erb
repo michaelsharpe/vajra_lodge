@@ -3,8 +3,8 @@
   <div class="columns large-centered large-9">
     <% @posts.each do |post| %>
       <section class="post">
-        <h4><%= link_to "#{post.degree}°", feed_path(degree: "#{post.degree}"), {name: "#{post.id}"} %></h4>
-        <h6><%= link_to "#{post.user.username}", user_path(post.user) %></h6>
+        <h4><%= link_to "#{post.degree}°", feed_path(degree: "#{post.degree}") %></h4>
+        <h6><%= link_to "#{post.user.username}", user_path(post.user), {name: "#{post.id}"} %></h6>
         <% if current_user == post.user %>
           <a href="#" data-dropdown="drop<%= post.id %>" class="tiny button dropdown"></a><br>
           <ul id="drop<%= post.id %>" data-dropdown-content class="f-dropdown">
@@ -12,9 +12,9 @@
             <li><%= link_to "Delete Post", post, { method: "delete" } %></li>
           </ul>
         <% end %>
-        <p class="datestamp"><%= post.created_at.to_s(:long) %></p>
+        <p class="datestamp"><%= post.created_at.to_s(:long_ordinal) %></p>
         <br>
-        <%= post.content %>
+        <p><%= post.content %></p>
         <br>
         <% if post.comments.length > 0 %>
         <h5>Comments:</h5>
@@ -31,6 +31,7 @@
                     <li><%= link_to "Delete Comment", "/posts/#{c.post_id}/comments/#{c.id}", { method: "delete" } %></li>
                   </ul>
                 <% end %>
+                <p class="datestamp"><%= c.created_at.to_s(:long_ordinal) %></p>
                 <p><%= c.content %></p>
               </li>
             <% end %>
