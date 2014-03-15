@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="columns large-6 large-centered">
+    <%= form_for @user do |f| %>
+      <section>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+      </section>
+      <section>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </section>
+      <section>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </section>
+      <section>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </section>
+      <%= f.submit "Submit", class: "button" %>
+    <% end %>
+  </div>
+</div>

@@ -1,5 +1,8 @@
 <div class="profile row">
   <div class="columns large-6 large-centered">
+    <% if current_user == @user %>
+        <%= link_to "Edit Profile", edit_user_path(@user), class: "tiny button edit" %>
+    <% end %>
     <h3><%= @user.username %>&#09;&#09;<%= @user.degree %>&deg;</h3>
     <p><%= @user.email %></p>
     <% if @user.roles.length > 0 %>

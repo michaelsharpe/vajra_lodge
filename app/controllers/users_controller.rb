@@ -25,9 +25,18 @@ class UsersController < ApplicationController
     end
   
     def edit
+      @user = current_user
     end
   
     def update
+      @user = current_user
+
+      if @user.update_attributes(user_params)
+        render :show
+      else
+        flash.now[:alert] = "Could not update profile"
+        render :edit
+      end
     end
   
     def destroy
