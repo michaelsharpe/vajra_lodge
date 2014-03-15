@@ -5,6 +5,9 @@
     <% end %>
     <h3><%= @user.username %>&#09;&#09;<%= @user.degree %>&deg;</h3>
     <p><%= @user.email %></p>
+    <% if @user.disabled %>
+      <h3 class="disabled">Disabled</h3>
+    <% end %>
     <% if @user.roles.length > 0 %>
       <h6>
         <% if @user.roles.length == 1 %>

@@ -1,12 +1,15 @@
-.profile span {
-  font-size: 1.4em;
-  margin-right: 0.75em;
-}
-
-.profile .edit {
-  float: right;
-}
-
-.profile .alert {
-  background-color: #f00;
+.profile {
+  span {
+    font-size: 1.4em;
+    margin-right: 0.75em;
+  }
+  .edit {
+    float: right;
+  }
+  .alert {
+    background-color: #f00;
+  }
+  .disabled {
+    color: #f00;
+  }
 }
