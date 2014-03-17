@@ -186,7 +186,7 @@ GEM
     ruby_engine (1.0.1)
     ruby_info (1.0.1)
     ruby_version (1.0.1)
-    sass (3.3.2)
+    sass (3.3.3)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
@@ -244,6 +244,7 @@ DEPENDENCIES
   rack-livereload
   rails (= 4.0.2)
   role_model
+  sass (= 3.3.3)
   sass-rails (~> 4.0.0)
   sdoc
   sorcery

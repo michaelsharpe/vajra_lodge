@@ -1,5 +1,7 @@
 @import "foundation_and_overrides";
 @import "global";
-@import "users";
-@import "posts";
-@import "comments";
+@import "variables";
+@import "modules/comments";
+@import "modules/posts";
+@import "modules/static";
+@import "modules/users";
