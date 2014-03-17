@@ -244,7 +244,7 @@ DEPENDENCIES
   rack-livereload
   rails (= 4.0.2)
   role_model
-  sass (= 3.3.3)
+  sass (~> 3.2)
   sass-rails (~> 4.0.0)
   sdoc
   sorcery
