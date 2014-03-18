@@ -11,6 +11,7 @@ gem 'sorcery'
 gem 'jbuilder', '~> 1.2'
 gem 'cancancan', '~> 1.7'
 gem 'role_model'
+# gem 'rack-ssl-rails'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -24,6 +25,7 @@ group :development do
   gem 'guard', '>= 2.2.2',       :require => false
   gem 'guard-livereload',        :require => false
   gem 'rack-livereload'
+  # gem 'thin'
 end
 
 group :production do

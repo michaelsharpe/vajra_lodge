@@ -8,6 +8,7 @@ class PostsController < ApplicationController
         @posts = Post.where("degree <= ?", current_user.degree).order(created_at: :desc)
       end
       @post = Post.new
+      render stream: true
     end
   
     def show

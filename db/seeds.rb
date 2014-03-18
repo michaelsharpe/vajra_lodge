@@ -22,3 +22,11 @@ end
   comment = Post.find(post).comments.build(post_id: post, user_id: r.rand(1..5), content: Faker::Lorem.paragraphs(r.rand(1..3)).join("\n"))
   comment.save
 end
+
+20.times do |i|
+  day = r.rand(1..30)
+  month = r.rand(1..12)
+  year = r.rand(2010..2014)
+  date = Date.new(year,month,day)
+  Minute.create!(degree: r.rand(1..33), date: date, open: r.rand(10..12), close: r.rand(1..4), content: Faker::Lorem.paragraphs(r.rand(1..4)).join("\n\n"), reviewed: false)
+end

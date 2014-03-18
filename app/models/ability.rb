@@ -8,6 +8,7 @@ class Ability
       if user.has_role? :Admin
         can :manage, :all
       elsif user.has_role? :Secretary
+        can [:read, :create, :update], Minute
       elsif user.has_role? :Treasurer
       end
     #

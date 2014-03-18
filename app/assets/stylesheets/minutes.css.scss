@@ -1,0 +1,19 @@
+.minute span {
+  font-weight: bold;
+}
+
+.minute .button {
+  float: right;
+}
+
+.minute h4 {
+  display: inline-block;
+}
+
+a.reviewed-false {
+  color: #d44;
+}
+
+a.reviewed-true {
+  color: #4b4;
+}

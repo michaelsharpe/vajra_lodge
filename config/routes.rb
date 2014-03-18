@@ -5,8 +5,11 @@ VajraLodge::Application.routes.draw do
   get 'feed' => 'posts#index', :as => :feed
   post 'users/:id/disable' => 'users#disable', :as => :disable
   post 'users/:id/enable' => 'users#enable', :as => :enable
+  post 'minutes/:id/reviewed' => 'minutes#reviewed', :as => :reviewed
+  post 'minutes/:id/not_reviewed' => 'minutes#not_reviewed', :as => :not_reviewed
 
   resources :users, :except => [:destroy]
+  resources :minutes, :except => [:destroy]
   resources :posts do
     resources :comments, :except => [:index]    
   end

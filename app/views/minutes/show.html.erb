@@ -1,0 +1,20 @@
+<div class="columns large-centered large-8 minute">
+  <h4>
+    <%= @minute.degree %>°&#09;<%= @minute.date.to_s(:long_ordinal) %>
+  </h4>
+  <% if (can? :update, Minute) %>
+    <a href="#" data-dropdown="minute<%= @minute.id %>" class="tiny button dropdown"></a><br>
+    <ul id="minute<%= @minute.id %>" data-dropdown-content class="f-dropdown">
+      <li><%= link_to "Edit Minutes", edit_minute_path(@minute) %></li>
+      <li>
+      <% if @minute.reviewed %>
+        <%= link_to "Mark as not reviewed", not_reviewed_path(@minute), method: "post" %>
+      <% else %>
+        <%= link_to "Mark as reviewed", reviewed_path(@minute), method: "post" %>
+      <% end %>
+      </li>
+    </ul>
+  <% end %>
+  <h6><span>Open:</span> <%= @minute.open %>&#09;<span>Close:</span> <%= @minute.close %></h6>
+  <p><%= @minute.content %></p>
+</div>
