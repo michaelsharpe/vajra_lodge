@@ -1,7 +1,11 @@
 class MinutesController < ApplicationController
     def index
       if params[:degree]
-        @minutes = Minute.where("degree = ?", params[:degree]).order(date: :desc)    
+        @minutes = Minute.where("degree = ?", params[:degree]).order(date: :desc)
+      elsif params[:reviewed] == "1"
+        @minutes = Minute.where("reviewed = ? AND degree <= ?", true, current_user.degree).order(date: :desc)
+      elsif params[:reviewed] == "2"
+        @minutes = Minute.where("reviewed = ? AND degree <= ?", false, current_user.degree).order(date: :desc)
       else
         @minutes = Minute.where("degree <= ?", current_user.degree).order(date: :desc)
       end
