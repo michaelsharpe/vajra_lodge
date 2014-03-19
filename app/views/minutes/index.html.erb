@@ -5,7 +5,13 @@
     <li><%= link_to "Not Reviewed", minutes_path(reviewed: 2), class: "button" %></li>
   </ul>
   <% @minutes.each do |minute| %>
-    <h4><%= link_to "#{minute.degree}°", minutes_path(degree: "#{minute.degree}") %>&#09;<%= link_to minute.date.to_s(:long_ordinal), minute_path(minute), class: "reviewed-#{minute.reviewed}" %></h4>
+    <h4>
+      <% if params[:reviewed] %>
+        <%= link_to "#{minute.degree}°", minutes_path(degree: "#{minute.degree}", reviewed: "#{params[:reviewed]}") %>
+      <% else %>
+        <%= link_to "#{minute.degree}°", minutes_path(degree: "#{minute.degree}") %>
+      <% end %>
+        &#09;<%= link_to minute.date.to_s(:long_ordinal), minute_path(minute), class: "reviewed-#{minute.reviewed}" %></h4>
     <% if (can? :update, Minute) %>
       <a href="#" data-dropdown="minute<%= minute.id %>" class="tiny button dropdown"></a><br>
       <ul id="minute<%= minute.id %>" data-dropdown-content class="f-dropdown">
