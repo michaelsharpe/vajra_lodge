@@ -1,0 +1,14 @@
+// //Topbar Styles
+$topbar-height: 80px;
+$topbar-bg: $dark-blue;
+
+$topbar-link-color: $dark-yellow;
+$topbar-link-color-hover: $medium-yellow;
+$topbar-link-color-active: $light-yellow;
+$topbar-link-color-active-hover: $dark-yellow;
+$topbar-link-weight: normal;
+$topbar-link-font-size: rem-calc(25);
+$topbar-link-hover-lightness: -10%; // Darken by 10%
+$topbar-link-bg-hover: $dark-blue;
+$topbar-link-bg-active: $light-blue;
+$topbar-link-font-family: $font-family;

@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'OptimusPrinceps';
+  src: url('OptimusPrinceps.ttf', font)  format('truetype')
+}
+
+
+//Site colors
+
+$light-blue: #8DD7F7;
+$dark-blue:  #00518A;
+$dark-yellow: #FBCB33;
+$medium-yellow: #FFE89B;
+$light-yellow: #FFFAC1;
+$white: #fff;
+
+$font-family: 'OptimusPrinceps';
+
+
+//Site font styling
+h1 {
+  font-size: 2em;
+}

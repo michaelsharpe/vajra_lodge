@@ -1,3 +1,91 @@
-.main-container {
-  background: white url('../images/vajra-background.png');
+
+// Foundation overrides
+
+
+//Navbar
+nav.top-bar {
+  text-align: center;
 }
+
+section.top-bar-section {
+display: inline-block;
+margin-left: 0%;
+}
+
+#menu-icon {
+  font-size: 30px;
+}
+
+// All containers
+
+.body, 
+.html {
+  height: 100%;
+  width: 100%;
+}
+
+.home-container,
+.about-container,
+.article-container,
+.contact-container {
+  height: 100%;
+  width: 100%;
+}
+
+//Home container
+
+.home-container {
+  background-color: $dark-blue; 
+}
+
+//About container
+
+.about-container {
+  background-color: $white; 
+}
+
+// Article container
+.article-container {
+  background-color: $light-blue; 
+}
+
+//Contact container
+
+.contact-container {
+  background-image: image-url("vajra-logo_vajra-grid.svg");
+}
+
+// Media queries
+// 577
+
+// @media only screen and (max-width: 577px) {
+ 
+//     /* Makes the responsive menu fit in the navigation container and change its background to black */
+//     .top-bar ul {
+//         background-color: rgba(0, 0, 0, 0.5);
+//         padding-bottom: 13px;
+//     }
+ 
+//     /* Change non active menu item color to black */
+//     .top-bar-section ul li > a {
+//         color: #fff;
+//     }
+ 
+//     /* Gives the dropdown ul a black fill */
+//     .top-bar-section ul {
+//         background: #000;
+//     }
+ 
+//     /* Give the BACK button after going in a submenu the appropriate filling */
+//     .top-bar-section .dropdown li.title h5 a {
+//         line-height: 57px;
+//     }
+ 
+//     /* This fixes the position and the color of the dropdown arrow */
+//     .top-bar-section .has-dropdown > a:after {
+//         border-color: rgba(255, 255, 255, 1) transparent transparent;
+//         margin-top: 2.5px;
+//     }
+ 
+// } /* end media query */
+
