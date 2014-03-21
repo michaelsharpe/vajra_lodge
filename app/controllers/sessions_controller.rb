@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   
     def create
       if @user = login(params[:username], params[:password])
-        if !@user.disabled
+        if !@user.profile.disabled
           redirect_to(:feed, notice: "Login Successful")
         else
           @user = User.new

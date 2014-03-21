@@ -7,10 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 r = Random.new
-roles = %w[Admin Treasurer Secretary]
+roles = %w[Admin Treasurer Secretary Candidate]
 
 1.upto(5) do |i|
-  User.create!(username: "user#{i}", email: "test#{i}@test.com", password:"test888",password_confirmation:"test888",roles: "#{roles[i-1]}",degree: r.rand(1..33), bio: Faker::Lorem.paragraphs(r.rand(1..3)).join("\n\n"), disabled: false)
+  u = User.create!(username: "user#{i}", email: "test#{i}@test.com", password:"test888",password_confirmation:"test888")
+  u.create_profile(degree: r.rand(1..33), roles: roles[i-1], disabled: false, address: "#{Faker::Address.street_address} #{Faker::Address.street_name}", phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraphs(r.rand(1..3)).join("\n\n"))
 end
 
 100.times do |i|

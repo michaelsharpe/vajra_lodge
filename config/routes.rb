@@ -8,7 +8,9 @@ VajraLodge::Application.routes.draw do
   post 'minutes/:id/reviewed' => 'minutes#reviewed', :as => :reviewed
   post 'minutes/:id/not_reviewed' => 'minutes#not_reviewed', :as => :not_reviewed
 
-  resources :users, :except => [:destroy]
+  resources :users, :except => [:destroy] do
+    resources :profiles, :except => [:index, :destroy]
+  end
   resources :minutes, :except => [:destroy]
   resources :posts do
     resources :comments, :except => [:index]    

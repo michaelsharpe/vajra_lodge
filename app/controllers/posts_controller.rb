@@ -5,7 +5,7 @@ class PostsController < ApplicationController
       if params[:degree]
         @posts = Post.where("degree = ?", params[:degree]).order(created_at: :desc)    
       else
-        @posts = Post.where("degree <= ?", current_user.degree).order(created_at: :desc)
+        @posts = Post.where("degree <= ?", current_user.profile.degree).order(created_at: :desc)
       end
       @post = Post.new
       render stream: true

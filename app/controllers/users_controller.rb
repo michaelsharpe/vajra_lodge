@@ -15,11 +15,11 @@ class UsersController < ApplicationController
   
     def create
       @user = User.new user_params
-      @user.disabled = "false"
+      # @user.disabled = "false"
       if @user.save
-        auto_login(@user)
-        flash[:success] = "Welcome, #{@user.username}!"
-        redirect_to @user, notice: "User successfully created"
+        # auto_login(@user)
+        flash[:success] = "#{@user.username} has been created! Please take a few moments to fill out their profile."
+        redirect_to "/users/#{@user.id}/profiles/new"
       else
         render "new"
       end
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   
     def disable
       @user = User.find(params[:id])
-      if @user.update_attribute(:disabled, true)
+      if @user.profile.update_attribute(:disabled, true)
         if current_user == @user
           logout
           redirect_to(root_url, notice: "Your account has been disabled.\nTo reactivate it, please speak with an admin.")
@@ -58,7 +58,7 @@ class UsersController < ApplicationController
 
     def enable
       @user = User.find(params[:id])
-      if @user.update_attribute(:disabled, false)
+      if @user.profile.update_attribute(:disabled, false)
         flash.now[:notice] = "#{@user.username} has been enabled"
         render :show
       else

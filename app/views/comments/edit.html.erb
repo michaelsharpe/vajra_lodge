@@ -23,7 +23,7 @@
       </ul>
     <% end %>
     <%= form_for ([@post, @comment]) do |f| %>
-      <%= f.text_field :content %>
+      <%= f.text_area :content %>
       <%= f.submit "Comment", class: "tiny button" %>
     <% end %>
   </section>
