@@ -1,0 +1,21 @@
+{
+  "name": "vajra_lodge",
+  "version": "0.0.1",
+  "homepage": "https://github.com/jmacpherson/vajra_lodge",
+  "authors": [
+    "michaelsharpe <m.sharpe@project89.org>",
+    "johnmacpherson <jd.macpherson@project89.org>"
+  ],
+  "description": "System for Vajra Lodge 51",
+  "main": "n",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ]
+}

@@ -28,7 +28,9 @@ margin-left: 0%;
 .about-container,
 .article-container,
 .contact-container {
-  height: 100%;
+  height: -webkit-calc(100% + 80px);
+  height: -moz-calc(100% + 80px);
+  height: calc(100% + 80px);
   width: 100%;
 }
 
@@ -36,6 +38,29 @@ margin-left: 0%;
 
 .home-container {
   background-color: $dark-blue; 
+}
+
+.title-image {
+  margin-top: 75px;
+  height: 65%;
+  background-image: image-url("main_page_01.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover; 
+   -o-background-size: cover; 
+   background-size: cover;  
+  background-position: center; 
+}
+
+.main-title {
+  text-align: center;
+  font-family: $font-family;
+  font-size: 20vh;
+  color: $dark-blue; 
+}
+
+.mini-logo {
+  position: relative;
+  bottom: 10px;
 }
 
 //About container
@@ -58,34 +83,30 @@ margin-left: 0%;
 // Media queries
 // 577
 
-// @media only screen and (max-width: 577px) {
+@media screen and (max-width: 577px) {
  
-//     /* Makes the responsive menu fit in the navigation container and change its background to black */
-//     .top-bar ul {
-//         background-color: rgba(0, 0, 0, 0.5);
-//         padding-bottom: 13px;
-//     }
+    .top-bar ul {
+        background-color: $dark-blue;
+        padding-bottom: 0px;
+    }
+
+    section.top-bar-section {
+      display: block;
+    }
  
-//     /* Change non active menu item color to black */
-//     .top-bar-section ul li > a {
-//         color: #fff;
-//     }
+    .top-bar-section ul li > a {
+        font-size: 22px;
+        background: $dark-blue; 
+    }
  
-//     /* Gives the dropdown ul a black fill */
-//     .top-bar-section ul {
-//         background: #000;
-//     }
+    .top-bar-section ul {
+        background: blue;
+    }
  
-//     /* Give the BACK button after going in a submenu the appropriate filling */
-//     .top-bar-section .dropdown li.title h5 a {
-//         line-height: 57px;
-//     }
+    .top-bar-section .has-dropdown > a:after {
+        border-color: rgba(255, 255, 255, 1) transparent transparent;
+        margin-top: 2.5px;
+    }
  
-//     /* This fixes the position and the color of the dropdown arrow */
-//     .top-bar-section .has-dropdown > a:after {
-//         border-color: rgba(255, 255, 255, 1) transparent transparent;
-//         margin-top: 2.5px;
-//     }
- 
-// } /* end media query */
+} /* end media query */
 
