@@ -1,23 +1,41 @@
-$(function() {
-  $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
+
+//Document ready functions
+$(document).ready(function(){
+  //Flowtype plugin settings
+  $("body").flowtype({
+    minimum: 400,
+    maximum: 1200
+  })
+
+  var currentPage;
+
+  //Smoothscroll plugin settings
+  $('a').smoothScroll({
+    offset: -58, 
+    speed: 1000,
+    beforeScroll: function(){
+      $('.top-bar').removeClass('expanded');
+    },
+    afterScroll: function(){
+      currentPage = $(this).attr("href");
     }
   });
-});
-
-$(document).ready(function(){
 
   // Move active class on topbar to current page
   $("ul>li>a").on("click", function(e){
     $(".active").removeClass("active");
-    $(this).parent().addClass("active")
+    $(this).parent().addClass("active");
+    if(screen.width < 600){
+      $("#menu-icon").trigger("click");
+    }
+  });
+
+  var menuOpen = false;
+  $("#menu-icon").on("click", function(){
+    if(menuOpen == false ){
+      menuOpen = true;
+    } else {
+      menuOpen = false;
+    }
   })
 });

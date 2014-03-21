@@ -3,6 +3,12 @@
   src: url('OptimusPrinceps.ttf', font)  format('truetype')
 }
 
+@font-face {
+  font-family: 'AllerLite';
+  src: url('Aller_Lt.ttf', font)  format('truetype')
+}
+
+
 
 //Site colors
 
@@ -13,10 +19,5 @@ $medium-yellow: #FFE89B;
 $light-yellow: #FFFAC1;
 $white: #fff;
 
-$font-family: 'OptimusPrinceps';
-
-
-//Site font styling
-h1 {
-  font-size: 2em;
-}
+$header-fonts: 'OptimusPrinceps';
+$font-family: 'AllerLite'

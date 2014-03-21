@@ -28,20 +28,25 @@ margin-left: 0%;
 .about-container,
 .article-container,
 .contact-container {
-  height: -webkit-calc(100% + 80px);
-  height: -moz-calc(100% + 80px);
-  height: calc(100% + 80px);
+  // height: -webkit-calc(100% + 80px);
+  // height: -moz-calc(100% + 80px);
+  position: relative;
+  min-height: 100%;
   width: 100%;
 }
 
 //Home container
 
 .home-container {
+  // height: -webkit-calc(100% + 80px);
+  // height: -moz-calc(100% + 80px);
+  // height: calc(100% + 80px);
+  min-height: 100%;
   background-color: $dark-blue; 
 }
 
 .title-image {
-  margin-top: 75px;
+  // margin-top: 74px;
   height: 65%;
   background-image: image-url("main_page_01.jpg");
   background-repeat: no-repeat;
@@ -52,10 +57,38 @@ margin-left: 0%;
 }
 
 .main-title {
+  padding-top: 10px;
   text-align: center;
   font-family: $font-family;
   font-size: 20vh;
   color: $dark-blue; 
+  z-index: 50;
+  h1{
+    height: 130px;
+  }
+  span {
+    font-size: 3em;
+    color: $dark-blue; 
+    position: relative;
+    bottom: 60px;
+    @media (max-width: 780px){
+      font-size: 18vw;
+    }
+  }
+  h3 {
+    position: relative;
+    bottom: 50px;
+    color: $dark-blue;
+  }
+  h4 {
+    padding-bottom: 15px;
+    color: $dark-blue;
+  }
+}
+
+.logo{
+  position: relative;
+  bottom: 100px;
 }
 
 .mini-logo {
@@ -63,10 +96,76 @@ margin-left: 0%;
   bottom: 10px;
 }
 
+.main-text {
+  background: $dark-blue; 
+  padding: 40px 25px 30px 25px;
+  p {
+    color: $white;
+    text-align: center;
+    font-size: 22px;
+  }
+}
+
+.down {
+  width: 2.5em;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  margin-left: -37px;
+}
+
+.home-down{
+  @extend .down;
+  background-color: $white;
+}
 //About container
 
 .about-container {
-  background-color: $white; 
+  background-color: $white;
+  @media(min-width: 1111px){
+    height: -webkit-calc(100% - 60px);
+  }
+}
+
+.about-images {
+  margin-top: 10px;
+}
+
+.cube, .dodecahedron,{
+  padding: 15px;
+  text-align: center;
+}
+
+
+.zion {
+  padding-top: 30px;
+  text-align: center;
+  h3 {
+    color: $dark-blue;
+  }
+}
+
+.about-text {
+  position: relative;
+  padding: 25px;
+  h2 {
+    color: $dark-blue;
+    text-align: center;
+  }
+  p {
+    color: $dark-blue;
+    text-align: justify;
+  }
+  .button {
+    float: right;
+  }
+  @media (min-width: 1111px){
+    bottom: 40px;
+  }
+}
+
+.about-down {
+  @extend .down;
 }
 
 // Article container
@@ -77,36 +176,55 @@ margin-left: 0%;
 //Contact container
 
 .contact-container {
-  background-image: image-url("vajra-logo_vajra-grid.svg");
+  background-image: image-url("vajra-grid.svg");
 }
 
 // Media queries
-// 577
 
-@media screen and (max-width: 577px) {
+// Iphone
+@media screen and (max-width: 640px) {
+  .top-bar ul {
+      background-color: $dark-blue;
+      padding-bottom: 0px;
+  }
+
+  section.top-bar-section {
+    display: block;
+  }
+
+  .top-bar-section ul li > a {
+      font-size: 22px;
+      background: $dark-blue; 
+  }
+
+  .top-bar-section ul {
+      background: blue;
+  }
+
+  .top-bar-section .has-dropdown > a:after {
+      border-color: rgba(255, 255, 255, 1) transparent transparent;
+      margin-top: 2.5px;
+  }
  
-    .top-bar ul {
-        background-color: $dark-blue;
-        padding-bottom: 0px;
+ // Main container
+ 
+  .main-title {
+    h2 {
+      font-size: 20px; 
+    }
+    h3 {
+      bottom: 70px;
+    }
+    h1 {
+      margin-top: 20px;
+      height: 100px;
     }
 
-    section.top-bar-section {
-      display: block;
-    }
- 
-    .top-bar-section ul li > a {
-        font-size: 22px;
-        background: $dark-blue; 
-    }
- 
-    .top-bar-section ul {
-        background: blue;
-    }
- 
-    .top-bar-section .has-dropdown > a:after {
-        border-color: rgba(255, 255, 255, 1) transparent transparent;
-        margin-top: 2.5px;
-    }
- 
+  }
+
+  .logo {
+    bottom: 50px;
+  }
+
 } /* end media query */
 

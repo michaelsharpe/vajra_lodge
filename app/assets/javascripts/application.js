@@ -13,6 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require jquery.smooth-scroll/jquery.smooth-scroll.min.js
+//= require flowtype.js
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+

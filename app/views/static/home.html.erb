@@ -1,15 +1,62 @@
 <div class="home-container" id="home">
-  <div class="title-image">
+  <div class="title-image" >
     <div class="row">
       <div class="small-12 columns main-title">
-        <span>Vajra<span><%= image_tag("vajra-logo_mini-logo.svg", class: "mini-logo") %></span>Lodge</span>
+        <h4>Eastern Order of International Co-Freemasonry</h4>
+        <h1><span>Vajra <!-- <span><%= image_tag("vajra-logo_mini-logo.svg", class: "mini-logo") %></span> -->Lodge</span></h1>
+        <h3>Peterborough, Ontario, Canada</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-9 small-centered medium-6 medium-centered large-5 large-centered columns logo-container">
+        <%= image_tag("logo.svg", class: "logo") %>
       </div>
     </div>
   </div>
+  <div class="row">
+    <div class="small-12 columns main-text">
+      <p>
+        The Eastern Order of International Co-Freemasonry is a worldwide body of both men and women Freemasons, who together work the traditional rites of Freemasonry with a conscious awareness of their spiritual content. It regards Freemasonry as a modern form of the ancient Mysteries, which pointed their initiates toward the Path of self-discovery and of service to all living beings. 
+      </p>
+    </div>
+  </div>
+    <div class="home-down show-for-large-up">
+      <a href="#about"><%= image_tag("down-baby-blue.svg") %></a> 
+    </div>
 </div>
 
 <div class="about-container" id="about">
-  
+
+  <div class="row about-images">
+    <div class="medium-3 columns cube hide-for-small-only">
+      <%= image_tag("cube.svg") %>
+    </div>
+    <div class="medium-6 columns zion">
+      <h3>"See, I lay in Zion a chosen and precious cornerstone, and the one who trusts in Him will never be put to shame."</h3>
+    </div>
+    <div class="medium-3 columns dodecahedron">
+      <%= image_tag("dodecahedron.svg") %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 columns about-text">
+      <h2>About Freemasonry</h2>
+      <p>
+        Freemasonry is a design for living which, when followed, leads its initiates to a knowledge of their own inner divine nature and of their harmonious linkage with all life on the planet. It gives Freemasons a training that can eventually bring them to a gateway opening upon the Path that all human beings can walk to self-knowledge and to mutual support and cooperation.
+      </p>
+      <p>
+        To achieve spiritual unfoldment on any path, the aspirant must earnestly seek after truth. All of us have the ability of realizing our inner potential, but like a seed planted in the soil, our potential has to be cared for and fostered before it can grow and bloom. Freemasonry provides a regimen of self-cultivation in the company of other aspirants to the Path.
+      </p>
+      <p>
+        Freemasonry has its spiritual roots in the ancient Mysteries and is today the modern form of those mysteries. It is said to have been established on this planet by Great Ones, representatives of the universal and eternal Grand Lodge, who came to guide their younger brothers and sisters. Throughout the ages, Freemasonry has preserved the Ancient Wisdom of Brotherly Love, Relief, and Truth, which might otherwise have been lost to humanity during periods of darkness. The symbols by which that Ancient Wisdom is expressed have varied with time and place, as civilizations have come and gone, but the fundamental design of the work and its great truths have remained unchanged. Modern Freemasonry is a treasury of spiritual values drawn from the Great Lodge above and following the Plan of the Great Architect.
+      </p>
+      <div class="button">Read More</div>
+    </div>
+  </div>
+  <div class="about-down show-for-large-up">
+    <a href="#article"><%= image_tag("down-baby-blue.svg") %></a> 
+  </div>
 </div>
 
 <div class="article-container" id="articles">
