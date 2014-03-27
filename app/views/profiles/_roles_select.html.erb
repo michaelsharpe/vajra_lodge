@@ -1,0 +1,13 @@
+<section>
+  <label for="profile_roles">Roles</label>
+  <% if can? :make_admin, @profile %>
+    <%= check_box_tag "profile[roles][]", :Admin, @profile.has_role?(:Admin) %>
+    <label for="profile_roles">Admin</label>  
+  <% end %>
+  <% Profile.valid_roles.each do |role| %>
+    <% unless role == :Admin %>
+      <%= check_box_tag "profile[roles][]", role, @profile.has_role?(role) %>
+      <label for="profile_roles"><%= role.to_s %></label>  
+    <% end %>
+  <% end %>
+</section>

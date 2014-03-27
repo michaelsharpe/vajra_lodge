@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         if @user.profile.disabled
           logout
           redirect_to root_url, alert: "Your account has been disabled.\n\nPlease speak with an admin"
-        elsif @user.profile.roles.include? :Candidate
+        elsif @user.profile.has_role? :Candidate
           logout
           redirect_to root_url
         else

@@ -15,9 +15,7 @@ class UsersController < ApplicationController
   
     def create
       @user = User.new user_params
-      # @user.disabled = "false"
       if @user.save
-        # auto_login(@user)
         flash[:success] = "#{@user.username} has been created! Please take a few moments to fill out their profile."
         redirect_to "/users/#{@user.id}/profiles/new"
       else

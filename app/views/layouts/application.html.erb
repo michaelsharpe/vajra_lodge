@@ -27,10 +27,12 @@
           <% if can? :read, Minute %>
             <li><%= link_to "Minutes", minutes_path %></li>
           <% end %>
+          <% if can? :create, User %>
+            <li><%= link_to "Create new user", new_user_path %></li>
+          <% end %>
           <li><%= link_to "Feed", posts_path %></li>
           <li><%= link_to "Log out", logout_path, {method: "post"} %></li>
         <% else %>
-          <li><%= link_to "Create new user", new_user_path %></li>
           <li><%= link_to "Login", login_path %></li>
         <% end %>
         </ul>

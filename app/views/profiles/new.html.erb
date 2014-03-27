@@ -3,14 +3,14 @@
     <%= form_for ([@user,@profile]) do |f| %>
       <section>
         <%= f.label :degree %>
-        <%= f.collection_select :degree, Post::DEGREES, :to_i, :humanize %>
+        <%= f.collection_select :degree, ["0"] + Post::DEGREES, :to_i, :humanize %>
       </section>
       <% if can? :assign_roles, @profile %>
         <%= render "roles_select" %>
       <% end %>
       <section>
         <%= f.label :email %>
-        <%= f.text_field :email %>
+        <%= f.email_field :email %>
       </section>
       <section>
         <%= f.label :address %>
