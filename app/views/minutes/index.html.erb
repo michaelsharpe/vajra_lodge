@@ -1,5 +1,6 @@
 <div class="columns large-centered large-8 minute">
   <ul class="button-group">
+    <li><%= link_to "New", new_minute_path, class: "button success" %></li>
     <li><%= link_to "All", minutes_path, class: "button" %></li>
     <li><%= link_to "Reviewed", minutes_path(reviewed: 1), class: "button" %></li>
     <li><%= link_to "Not Reviewed", minutes_path(reviewed: 2), class: "button" %></li>
@@ -7,9 +8,9 @@
   <% @minutes.each do |minute| %>
     <h4>
       <% if params[:reviewed] %>
-        <%= link_to "#{minute.degree}°", minutes_path(degree: "#{minute.degree}", reviewed: "#{params[:reviewed]}") %>
+        <%= link_to "#{minute.degree}°", minutes_path(degree: "#{minute.degree}", reviewed: "#{params[:reviewed]}"), { name: "#{minute.id}" } %>
       <% else %>
-        <%= link_to "#{minute.degree}°", minutes_path(degree: "#{minute.degree}") %>
+        <%= link_to "#{minute.degree}°", minutes_path(degree: "#{minute.degree}"), { name: "#{minute.id}" } %>
       <% end %>
         &#09;<%= link_to minute.date.to_s(:long_ordinal), minute_path(minute), class: "reviewed-#{minute.reviewed}" %></h4>
     <% if (can? :update, Minute) %>

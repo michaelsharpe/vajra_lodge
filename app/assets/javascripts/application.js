@@ -12,7 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require foundation
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+
+$(document).ready(function(){
+  if($("#datepicker"))
+        $("#datepicker").datepicker({dateFormat: "yy-mm-dd"});
+});
