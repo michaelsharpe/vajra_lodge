@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140321181616) do
     t.integer  "degree"
     t.integer  "roles_mask"
     t.boolean  "disabled"
+    t.string   "email"
     t.text     "address"
     t.text     "phone"
     t.text     "bio"
@@ -57,7 +58,6 @@ ActiveRecord::Schema.define(version: 20140321181616) do
 
   create_table "users", force: true do |t|
     t.string   "username",         null: false
-    t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
     t.datetime "created_at"

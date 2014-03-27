@@ -5,6 +5,7 @@ class CreateProfiles < ActiveRecord::Migration
       t.integer :degree
       t.integer :roles_mask
       t.boolean :disabled
+      t.string :email
       t.text :address
       t.text :phone
       t.text :bio

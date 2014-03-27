@@ -6,6 +6,10 @@
         <%= f.collection_select :degree, Post::DEGREES, :to_i, :humanize %>
       </section>
       <section>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
+      </section>
+      <section>
         <%= f.label :address %>
         <%= f.text_field :address %>
       </section>

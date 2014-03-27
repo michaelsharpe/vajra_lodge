@@ -1,7 +1,7 @@
 <div class="profile row">
   <div class="columns large-6 large-centered">
     <% if can? :update, @user %>
-        <%= link_to "Change Login & Password", edit_user_path(@user), class: "tiny button edit" %>
+        <%= link_to "Change Password", edit_user_path(@user), class: "tiny button edit" %>
     <% end %>
     <% if can? :update, @user.profile %>
       <%= link_to "Update Profile", edit_user_profile_path(@user,@user.profile), class: "tiny button edit" %>
@@ -25,7 +25,7 @@
       </p>
     <% end %>
     <hr>
-    <p><span>Email:</span><%= @user.email %></p>
+    <p><span>Email:</span><%= @user.profile.email %></p>
     <p><span>Phone:</span><%= @user.profile.phone %></p>
     <p><span>Address:</span><%= @user.profile.address %></p>
     <p><span>Bio:</span><%= @user.profile.bio %></p>
