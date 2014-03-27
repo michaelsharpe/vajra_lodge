@@ -5,17 +5,17 @@ class SessionsController < ApplicationController
   
     def create
       if @user = login(params[:username], params[:password])
-        if !@user.profile.disabled
-          redirect_to(:feed, notice: "Login Successful")
+        if @user.profile.disabled
+          logout
+          redirect_to root_url, alert: "Your account has been disabled.\n\nPlease speak with an admin"
+        elsif @user.profile.roles.include? :Candidate
+          logout
+          redirect_to root_url
         else
-          @user = User.new
-          flash.now[:alert] = "Your account has been disabled.\n\nPlease speak with an admin"
-          render "new"
+          redirect_to(:feed, notice: "Login Successful")
         end
       else
-        @user = User.new
-        flash.now[:alert] = "Login failed"
-        render "new"
+        redirect_to root_url, alert: "Login failed"
       end
     end
   
