@@ -39,9 +39,14 @@ class ProfilesController < ApplicationController
     def destroy
     end
 
+    def admin
+      @user.profile.update_attribute(:admin, !@user.admin?) if can? :make_admin, @user
+      redirect_to "/users/#{@user.id}"
+    end
+
     private
     def profile_params
-      params.require(:profile).permit(:degree, :disabled, :email, :address, :phone, :bio, :roles => [])
+      params.require(:profile).permit(:degree, :admin, :disabled, :email, :address, :phone, :bio, :roles => [])
     end
 
     def load_user

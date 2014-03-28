@@ -5,14 +5,14 @@ class Ability
     # Define abilities for the passed in user here. For example:
     #
       user ||= User.new # guest user (not logged in)
-      if user.profile.has_role? :Admin
+      if user.admin?
         can :manage, :all
         can [:make_admin, :assign_roles], Profile
-      elsif user.profile.has_role? :Secretary
+      elsif user.has_role? :Secretary
         can [:read, :create, :update], Minute
         can [:update, :assign_roles], Profile
         can [:create], User
-      elsif user.profile.has_role? :Treasurer
+      elsif user.has_role? :Treasurer
       end
 
       can [:update], User, :id => user.id

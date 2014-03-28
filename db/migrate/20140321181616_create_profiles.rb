@@ -3,6 +3,7 @@ class CreateProfiles < ActiveRecord::Migration
     create_table :profiles do |t|
       t.integer :user_id
       t.integer :degree
+      t.boolean :admin
       t.integer :roles_mask
       t.boolean :disabled
       t.string :email

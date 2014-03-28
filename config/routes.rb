@@ -7,6 +7,7 @@ VajraLodge::Application.routes.draw do
   post 'users/:id/enable' => 'users#enable', :as => :enable
   post 'minutes/:id/reviewed' => 'minutes#reviewed', :as => :reviewed
   post 'minutes/:id/not_reviewed' => 'minutes#not_reviewed', :as => :not_reviewed
+  post 'users/:user_id/admin' => 'profiles#admin', :as => :admin
 
   resources :users, :except => [:destroy] do
     resources :profiles, :except => [:index, :destroy]

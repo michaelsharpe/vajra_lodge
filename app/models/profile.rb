@@ -5,5 +5,5 @@ class Profile < ActiveRecord::Base
 
   include RoleModel
   roles_attribute :roles_mask
-  roles :Admin, :Secretary, :Treasurer, :Candidate, :RWM, :WSW, :WJW, :IM
+  roles :Secretary, :Treasurer, :Candidate, :RWM, :WSW, :WJW, :IM
 end

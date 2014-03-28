@@ -10,6 +10,9 @@
     <% if @user.profile.disabled %>
       <h3 class="disabled">Disabled</h3>
     <% end %>
+    <% if @user.admin? %>
+      <h4>Admin</h4>
+    <% end %>
     <% if @user.profile.roles.length > 0 %>
       <p>
         <span>
@@ -34,6 +37,13 @@
         <%= link_to "Disable Account", disable_path(@user), {method: "post",class: "tiny button alert"} %>
       <% else %>
         <%= link_to "Enable Account", enable_path(@user), {method: "post", class: "tiny button success"} %>
+      <% end %>
+    <% end %>
+    <% if can? :make_admin, @user %>
+      <% if @user.admin? %>
+        <%= link_to "Disable Admin", admin_path(@user), {method: "post", class: "tiny button alert"} %>
+      <% else %>
+        <%= link_to "Make Admin", admin_path(@user), {method: "post", class: "tiny button success"} %>
       <% end %>
     <% end %>
   </div>

@@ -11,7 +11,7 @@ roles = %w[Admin Treasurer Secretary Candidate]
 
 1.upto(5) do |i|
   u = User.create!(username: "user#{i}", password:"test888",password_confirmation:"test888")
-  u.create_profile(degree: r.rand(1..33), roles: roles[i-1], disabled: false, email: "test#{i}@test.com", address: "#{Faker::Address.street_address} #{Faker::Address.street_name}", phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraphs(r.rand(1..3)).join("\n\n"))
+  u.create_profile(degree: r.rand(1..33), admin: (i == 1), roles: roles[i-1], disabled: false, email: "test#{i}@test.com", address: "#{Faker::Address.street_address} #{Faker::Address.street_name}", phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraphs(r.rand(1..3)).join("\n\n"))
 end
 
 100.times do |i|
