@@ -3,6 +3,7 @@ class MilestonesController < ApplicationController
   before_filter :require_login
 
   def index
+    @milestones = @user.milestones
   end
 
   def show

@@ -1,3 +1,14 @@
-// Place all the styles related to the milestones controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.stones {
+  h4 {
+    text-align: center;
+  }
+  ul {
+    list-style: none;
+  }
+  li:nth-child(odd) {
+    background: #ddd;
+  }
+  .edit {
+    float: right;
+  }
+}
