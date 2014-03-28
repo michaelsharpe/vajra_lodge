@@ -10,7 +10,7 @@
     </ul>
     <ul class="stones">
       <% @milestones.each do |stone| %>
-        <li><%= stone.date.to_s(:long_ordinal) %> in <%= stone.location %> <%= @user.username %> was <%= stone.event %> <%= link_to "Edit", edit_user_milestone_path(@user,stone), :class => "edit" %></li>
+        <li><%= stone.date.to_s(:long_ordinal) %> in <%= stone.location %> <%= @user.username %> was <%= link_to stone.event, user_milestone_path(@user,stone) %> <%= link_to "Edit", edit_user_milestone_path(@user,stone), :class => "edit" %></li>
       <% end %>
     </ul>
   </div>
