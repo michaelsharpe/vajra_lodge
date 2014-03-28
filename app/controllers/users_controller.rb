@@ -65,6 +65,12 @@ class UsersController < ApplicationController
       end
     end
 
+    def admin
+      @user = User.find(params[:id])
+      @user.profile.update_attribute(:admin, !@user.admin?) if can? :make_admin, @user
+      redirect_to "/users/#{@user.id}"
+    end
+
     private
     def user_params
       params.require(:user).permit(:username, :password, :password_confirmation)

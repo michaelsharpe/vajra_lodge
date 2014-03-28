@@ -2,12 +2,6 @@ class ProfilesController < ApplicationController
     before_filter :load_user
     before_filter :require_login
 
-    def index
-    end
-  
-    def show
-    end
-  
     def new
       @profile = @user.build_profile
     end
@@ -34,14 +28,6 @@ class ProfilesController < ApplicationController
         flash.now[:alert] = "Was unable to save changes"
         render "edit"
       end
-    end
-  
-    def destroy
-    end
-
-    def admin
-      @user.profile.update_attribute(:admin, !@user.admin?) if can? :make_admin, @user
-      redirect_to "/users/#{@user.id}"
     end
 
     private
