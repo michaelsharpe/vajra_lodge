@@ -2,7 +2,9 @@
   <div class="columns large-8 large-centered">
     <h4><%= @user.username %>'s Milestones</h4>
     <ul class="button-group">
-      <li><%= link_to "New", new_user_milestone_path, class: "button success" %></li>
+      <% if can? :create, @milestone %>
+        <li><%= link_to "New", new_user_milestone_path, class: "button success" %></li>
+      <% end %>
       <li><%= link_to "All", user_milestones_path, class: "button" %></li>
       <li><%= link_to "Degree", user_milestones_path(category: "degree"), class: "button" %></li>
       <li><%= link_to "Membership", user_milestones_path(category: "membership"), class: "button" %></li>
@@ -10,7 +12,12 @@
     </ul>
     <ul class="stones">
       <% @milestones.each do |stone| %>
-        <li><%= stone.date.to_s(:long_ordinal) %> in <%= stone.location %> <%= @user.username %> was <%= link_to stone.event, user_milestone_path(@user,stone) %> <%= link_to "Edit", edit_user_milestone_path(@user,stone), :class => "edit" %></li>
+        <li>
+          <%= stone.date.to_s(:long_ordinal) %> in <%= stone.location %> <%= @user.username %> was <%= link_to stone.event, user_milestone_path(@user,stone) %>
+          <% if can? :update, stone %>  
+            <%= link_to "Edit", edit_user_milestone_path(@user,stone), :class => "edit" %>
+          <% end %>
+        </li>
       <% end %>
     </ul>
   </div>

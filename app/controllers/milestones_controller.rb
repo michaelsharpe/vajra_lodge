@@ -8,6 +8,7 @@ class MilestonesController < ApplicationController
     else
       @milestones = @user.milestones.order(date: :desc)
     end
+    @milestone = @user.milestones.new
   end
 
   def show
@@ -41,9 +42,6 @@ class MilestonesController < ApplicationController
       flash.now[:alert] = "Edit failed"
       render "edit"
     end
-  end
-
-  def destroy
   end
 
   private

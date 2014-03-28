@@ -12,11 +12,13 @@ class Ability
       can [:read, :create, :update], Minute
       can [:update, :assign_roles], Profile
       can [:create], User
+      can [:create, :update], Milestone
     elsif user.has_role? :Treasurer
     end
 
     can [:update], User, :id => user.id
     can [:update], Profile, :user_id => user.id
+    can [:create, :update], Milestone, :user_id => user.id
 
 
     #
