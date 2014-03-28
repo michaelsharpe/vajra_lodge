@@ -1,10 +1,6 @@
 <div class="row">
   <div class="columns large-6 large-centered">
     <%= form_for ([@user,@profile]) do |f| %>
-      <section>
-        <%= f.label :degree %>
-        <%= f.collection_select :degree, Post::DEGREES, :to_i, :humanize %>
-      </section>
       <% if can? :assign_roles, @profile %>
         <%= render "roles_select" %>
       <% end %>

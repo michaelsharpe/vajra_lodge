@@ -1,11 +1,15 @@
 <div class="profile row">
   <div class="columns large-6 large-centered">
-    <% if can? :update, @user %>
-        <%= link_to "Change Password", edit_user_path(@user), class: "tiny button edit" %>
-    <% end %>
-    <% if can? :update, @user.profile %>
-      <%= link_to "Update Profile", edit_user_profile_path(@user,@user.profile), class: "tiny button edit" %>
-    <% end %>
+    <a href="#" data-dropdown="drop<%= @user.id %>" class="tiny button dropdown"></a><br>
+    <ul id="drop<%= @user.id %>" data-dropdown-content class="f-dropdown">
+      <% if can? :update, @user %>
+        <li><%= link_to "Change Password", edit_user_path(@user) %></li>
+      <% end %>
+      <% if can? :update, @user.profile %>
+        <li><%= link_to "Update Profile", edit_user_profile_path(@user,@user.profile) %></li>
+      <% end %>
+    </ul>
+    
     <h3><%= @user.username %>&#09;&#09;<%= @user.profile.degree %>&deg;</h3>
     <% if @user.profile.disabled %>
       <h3 class="disabled">Disabled</h3>
