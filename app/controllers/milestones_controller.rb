@@ -11,6 +11,7 @@ class MilestonesController < ApplicationController
   end
 
   def show
+    @milestone = Milestone.find(params[:id])
   end
 
   def new
