@@ -17,4 +17,5 @@
   <% end %>
   <h6><span>Open:</span> <%= @minute.open %>&#09;<span>Close:</span> <%= @minute.close %></h6>
   <p><%= @minute.content %></p>
+  <%= link_to "Back", minutes_path, :class => "tiny button" %>
 </div>
