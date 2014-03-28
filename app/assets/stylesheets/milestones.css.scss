@@ -5,19 +5,16 @@
   ul {
     list-style: none;
   }
+  .edit {
+    float: right;
+  }
+  span {
+    font-weight: bold;
+  }
 }
 
 .stones {
   li:nth-child(odd) {
     background: #ddd;
-  }
-  .edit {
-    float: right;
-  }
-}
-
-.stone {
-  span {
-    font-weight: bold;
   }
 }

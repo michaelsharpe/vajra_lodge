@@ -1,0 +1,13 @@
+<%= form_for ([@user,@milestone]) do |f| %>
+  <%= f.label :category %>
+  <%= f.collection_select :category, Milestone::CATEGORIES, :to_s, :humanize %>
+  <%= f.label :event %>
+  <%= f.collection_select :event, Milestone::EVENTS, :to_s, :humanize %>
+  <%= f.label :date %>
+  <%= f.text_field :date, :id => "datepicker" %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.submit "Submit", :class => "tiny button" %>
+<% end %>
