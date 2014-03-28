@@ -11,6 +11,7 @@ VajraLodge::Application.routes.draw do
 
   resources :users, :except => [:destroy] do
     resources :profiles, :except => [:index, :destroy]
+    resources :milestones, :except => :destroy
   end
   resources :minutes, :except => [:destroy]
   resources :posts do

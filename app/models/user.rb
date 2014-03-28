@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :username
 
   has_one :profile
+  has_many :milestones
   has_many :posts
   has_many :comments
 
