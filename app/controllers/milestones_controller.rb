@@ -3,7 +3,11 @@ class MilestonesController < ApplicationController
   before_filter :require_login
 
   def index
-    @milestones = @user.milestones
+    if params[:category]
+      @milestones = @user.milestones.where("category = ?", params[:category]).order(date: :desc)
+    else
+      @milestones = @user.milestones.order(date: :desc)
+    end
   end
 
   def show
