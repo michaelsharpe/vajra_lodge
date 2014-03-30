@@ -2,10 +2,6 @@ class ProfilesController < ApplicationController
     before_filter :load_user
     before_filter :require_login
 
-    def new
-      @profile = @user.build_profile
-    end
-  
     def create
       @profile = @user.build_profile(profile_params)
       if @profile.save

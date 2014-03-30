@@ -5,12 +5,12 @@ VajraLodge::Application.routes.draw do
   get 'feed' => 'posts#index', :as => :feed
   post 'users/:id/disable' => 'users#disable', :as => :disable
   post 'users/:id/enable' => 'users#enable', :as => :enable
+  post 'users/:id/admin' => 'users#admin', :as => :admin
   post 'minutes/:id/reviewed' => 'minutes#reviewed', :as => :reviewed
   post 'minutes/:id/not_reviewed' => 'minutes#not_reviewed', :as => :not_reviewed
-  post 'users/:id/admin' => 'users#admin', :as => :admin
 
   resources :users, :except => [:destroy] do
-    resources :profiles, :except => [:index, :show, :destroy]
+    resources :profiles, :except => [:index, :new, :create, :show, :destroy]
     resources :milestones, :except => :destroy
   end
   resources :minutes, :except => [:destroy]

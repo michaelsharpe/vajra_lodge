@@ -1,18 +1,50 @@
 <div class="row">
   <div class="columns large-6 large-centered">
     <%= form_for @user do |f| %>
-      <section>
+      <p>
         <%= f.label :username %>
         <%= f.text_field :username %>
-      </section>
-      <section>
+      </p>
+      <p>
         <%= f.label :password %>
         <%= f.password_field :password %>
-      </section>
-      <section>
+      </p>
+      <p>
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation %>
-      </section>
+      </p>
+      <%= f.fields_for :profile do |ff| %>
+        <%= ff.hidden_field :user_id %>
+        <p>
+          <%= ff.label :degree %>
+          <%= ff.collection_select :degree, ["0"] + Post::DEGREES, :to_i, :humanize %>
+        </p>
+        <% if can? :assign_roles, @profile %>
+          <p>
+            <label for="profile_roles">Roles</label>
+            <% Profile.valid_roles.each do |role| %>
+              <%= check_box_tag "user[profile_attributes][roles][]", role, @profile.has_role?(role) %>
+              <label for="profile_roles"><%= role.to_s %></label>  
+            <% end %>
+          </p>
+        <% end %>
+        <p>
+          <%= ff.label :email %>
+          <%= ff.email_field :email %>
+        </p>
+        <p>
+          <%= ff.label :address %>
+          <%= ff.text_field :address %>
+        </p>
+        <p>
+          <%= ff.label :phone %>
+          <%= ff.text_field :phone %>
+        </p>
+        <p>
+          <%= ff.label :bio %>
+          <%= ff.text_area :bio %>
+        </p>
+      <% end %>
       <%= f.submit "Submit", class: "button" %>
     <% end %>
   </div>
