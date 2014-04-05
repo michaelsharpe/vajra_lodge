@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'cancancan', '~> 1.7'
 gem 'role_model'
 gem 'irbtools', require: false
+gem 'acts_as_taggable_on'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

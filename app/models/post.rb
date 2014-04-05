@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
 
   validates_presence_of :content
 
+  acts_as_taggable
+
   DEGREES = %w(1 2 3 18 30 31 32 33)
 
   def self.degrees_selection(current_user)

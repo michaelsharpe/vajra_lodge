@@ -25,6 +25,8 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
+    acts_as_taggable_on (3.0.0.rc2)
+      rails (>= 3, < 5)
     alias (0.2.3)
     arel (4.0.2)
     atomic (1.1.16)
@@ -243,6 +245,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_taggable_on
   cancancan (~> 1.7)
   coffee-rails (~> 4.0.0)
   faker

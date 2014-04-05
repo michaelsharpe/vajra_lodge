@@ -13,7 +13,9 @@
     <h4>New Post</h4>
     <%= f.label :degree %>
     <%= f.collection_select :degree, Post.degrees_selection(current_user), :to_i, :humanize %>
-    <%= f.text_area :content %>
+    <%= f.text_area :content, rows: 6 %>
+    <%= f.label :tags %>
+    <%= f.text_field :tag_list %>
     <%= f.submit "Post", :class => "tiny button" %>
   <% end %>
 </div>

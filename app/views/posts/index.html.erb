@@ -15,6 +15,9 @@
         <p class="datestamp"><%= post.created_at.to_s(:long_ordinal) %></p>
         <br>
         <p><%= post.content %></p>
+        <% unless post.tag_list.empty? %>
+          <p class="tags">Tags: <%= post.tag_list %></p>
+        <% end %>
         <br>
         <% if post.comments.length > 0 %>
         <h5>Comments:</h5>
@@ -38,7 +41,7 @@
           </ul>
         <% end %>
         <%= form_for ([post, post.comments.build]) do |f| %>
-          <%= f.text_field :content %>
+          <%= f.text_area :content, rows: 3 %>
           <%= f.submit "Comment", class: "tiny button" %>
         <% end %>
       </section>

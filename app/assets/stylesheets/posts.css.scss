@@ -21,6 +21,11 @@
   }
 }
 
+.tags {
+  @extend .text-center;
+  color: #888;
+}
+
 .datestamp {
   color: #666;
   font-size: 0.8em;
