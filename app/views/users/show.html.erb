@@ -11,7 +11,7 @@
       <% end %>
     </ul>
     
-    <h3><%= @user.username %>&#09;&#09;<%= @user.profile.degree %>&deg;</h3>
+    <h3><%= @user.profile.full_name %>&#09;&#09;<%= @user.profile.degree %>&deg;</h3>
     <% if @user.profile.disabled %>
       <h3 class="disabled">Disabled</h3>
     <% end %>

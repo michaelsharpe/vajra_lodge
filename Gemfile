@@ -12,6 +12,7 @@ gem 'sorcery'
 gem 'jbuilder', '~> 1.2'
 gem 'cancancan', '~> 1.7'
 gem 'role_model'
+gem 'irbtools', require: false
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -19,7 +20,6 @@ group :doc do
 end
 
 group :development do
-  gem 'irbtools', require: false
   gem 'faker'
   gem 'pry'
   gem 'guard', '>= 2.2.2',       :require => false
@@ -28,8 +28,6 @@ group :development do
 end
 
 group :production do
-  gem 'irbtools', require: false
-  gem 'faker'
 end
 
 # Use ActiveModel has_secure_password

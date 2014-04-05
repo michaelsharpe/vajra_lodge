@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140328195721) do
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
+    t.string   "full_name"
     t.integer  "degree"
     t.boolean  "admin"
     t.integer  "roles_mask"

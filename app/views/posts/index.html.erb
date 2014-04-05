@@ -4,7 +4,7 @@
     <% @posts.each do |post| %>
       <section class="post">
         <h4><%= link_to "#{post.degree}°", feed_path(degree: "#{post.degree}") %></h4>
-        <h6><%= link_to "#{post.user.username}", user_path(post.user), { name: "#{post.id}" } %></h6>
+        <h6><%= link_to "#{post.user.profile.full_name}", user_path(post.user), { name: "#{post.id}" } %></h6>
         <% if current_user == post.user %>
           <a href="#" data-dropdown="drop<%= post.id %>" class="tiny button dropdown"></a><br>
           <ul id="drop<%= post.id %>" data-dropdown-content class="f-dropdown">
@@ -21,7 +21,7 @@
           <ul class="comments">
             <% post.comments.each do |c| %>
               <li class="comment">
-                <h6><%= link_to "#{c.user.username}", user_path(c.user) %></h6>
+                <h6><%= link_to "#{c.user.profile.full_name}", user_path(c.user) %></h6>
                 <% if current_user == c.user || current_user == post.user %>
                   <a href="#" data-dropdown="drop<%= c.id %>" class="tiny button dropdown"></a><br>
                   <ul id="drop<%= c.id %>" data-dropdown-content class="f-dropdown">
