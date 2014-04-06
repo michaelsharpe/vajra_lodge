@@ -2,12 +2,17 @@ class PostsController < ApplicationController
     before_filter :require_login
 
     def index
-      if params[:degree]
+      if params[:degree] && params[:tag]
+        @posts = Post.where("degree = ?", params[:degree]).tagged_with(params[:tag]).order(created_at: :desc)
+      elsif params[:degree]
         @posts = Post.where("degree = ?", params[:degree]).order(created_at: :desc)    
+      elsif params[:tag]
+        @posts = Post.where("degree <= ?", current_user.profile.degree).tagged_with(params[:tag]).order(created_at: :desc)
       else
         @posts = Post.where("degree <= ?", current_user.profile.degree).order(created_at: :desc)
       end
       @post = Post.new
+      @tags = Post.tag_counts_on(:tags)
       render stream: true
     end
   

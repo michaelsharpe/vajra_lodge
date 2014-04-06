@@ -1,9 +1,29 @@
 <div class="feed row">
+  <!-- New Post Form -->
   <%= render "new" %>
-  <div class="columns large-centered large-9">
+  <!-- Tag Cloud -->
+  <div class="columns large-3">
+    <% tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
+      <% if params[:degree] %>
+        <%= link_to tag.name, feed_path(tag: tag.name, degree: params[:degree]), :class => css_class %>
+      <% else %>
+        <%= link_to tag.name, feed_path(tag: tag.name), :class => css_class %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<!-- Post feed -->
+<div class="feed row">
+  <div class="columns large-9">
     <% @posts.each do |post| %>
       <section class="post">
-        <h4><%= link_to "#{post.degree}°", feed_path(degree: "#{post.degree}") %></h4>
+        <h4>
+          <% if params[:tag] %>
+            <%= link_to "#{post.degree}°", feed_path(degree: "#{post.degree}", tag: params[:tag]) %>
+          <% else %>
+            <%= link_to "#{post.degree}°", feed_path(degree: "#{post.degree}") %>
+          <% end %>
+        </h4>
         <h6><%= link_to "#{post.user.profile.full_name}", user_path(post.user), { name: "#{post.id}" } %></h6>
         <% if current_user == post.user %>
           <a href="#" data-dropdown="drop<%= post.id %>" class="tiny button dropdown"></a><br>
