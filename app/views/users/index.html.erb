@@ -1,14 +1,16 @@
-<% @users.each do |user| %>
-  <div class="row">
-    <div class="columns large-6">
-      <h3><%= user.username %>&#09;&#09;<%= user.degree %>&deg;</h3>
-      <p><%= user.email %></p>
-      <% if user.roles.length > 0 %>
-        <h6>Role(s):</h6>
-        <% user.roles.each do |role| %>
-          <p><%= role %></p>
-        <% end %>
+<div class="row">
+  <div class="columns large-6 large-centered">
+    <% @users.each do |user| %>
+      <h3><%= link_to "#{user.profile.full_name}\t#{user.profile.degree}°" %></h3>
+      <% if user.profile.roles.length > 0 %>
+        <p>
+          <span>Role(s):</span>
+          <% user.profile.roles.each do |role| %>
+            <%= role %>
+          <% end %>
+        </p>
       <% end %>
-    </div>
+      <hr>
+    <% end %>
   </div>
-<% end %>
+</div>

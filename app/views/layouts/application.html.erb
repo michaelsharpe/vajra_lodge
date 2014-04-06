@@ -24,6 +24,7 @@
       <section class="top-bar-section">
         <ul class="right">
         <% if current_user %>
+          <li><%= link_to "Members", users_path %></li>
           <% if can? :read, Minute %>
             <li><%= link_to "Minutes", minutes_path %></li>
           <% end %>
