@@ -62,6 +62,8 @@ padding-left: 60px;
 .title-image {
   // margin-top: 74px;
   height: 65%;
+  padding-top: 60px;
+  margin-top: -60px;
   background-image: image-url("main_page_01.jpg");
   background-repeat: no-repeat;
   -webkit-background-size: cover; 
@@ -86,7 +88,7 @@ padding-left: 60px;
     position: relative;
     bottom: 60px;
     @media (max-width: 780px){
-      font-size: 18vw;
+      font-size: 17vw;
     }
   }
   h3 {

@@ -6,17 +6,17 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
+    <%= stylesheet_link_tag    "static" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= csrf_meta_tags %>
   </head>
 
   <body>
     <div class="fixed">
-      <nav class="top-bar sticky" data-topbar data-options="scrolltop: false">
+      <nav class="top-bar" data-topbar data-options="scrolltop: false">
         <ul class="title-area">
           <li class="name"></li>
-          <li class="toggle-topbar menu-icon left"><a href="#"><span><%= image_tag("tiny-logo.svg", class: "mini-logo") %></span></a></li>
+          <li class="toggle-topbar left"><a href="#"><span><%= image_tag("tiny-logo.svg", class: "mini-logo") %></span></a></li>
         </ul>
         <section class="top-bar-section">
           <ul class="left">

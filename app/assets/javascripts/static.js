@@ -1,7 +1,7 @@
 
 //Document ready functions
 $(document).ready(function(){
-  //Flowtype plugin settings
+  // Flowtype plugin settings
   $("body").flowtype({
     minimum: 400,
     maximum: 1200

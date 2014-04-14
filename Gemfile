@@ -12,6 +12,7 @@ gem 'sorcery'
 gem 'jbuilder', '~> 1.2'
 gem 'cancancan', '~> 1.7'
 gem 'role_model'
+gem 'rails_12factor'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
