@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :milestones
   has_many :posts
   has_many :comments
+  belongs_to :lodge
 
   accepts_nested_attributes_for :profile
 
@@ -17,13 +18,39 @@ class User < ActiveRecord::Base
     self.profile.admin
   end
 
+  def candidate?
+    self.has_role?(:Candidate)
+  end
+
   def has_role?(role)
     self.profile.has_role?(role)
+  end
+
+  def membership_events
+    self.milestones.where("event = 'Initiated' OR event = 'Affiliated' OR event = 'Resigned' OR event = 'Death'").sort_by { |stone| stone.date }
+  end
+
+  def member_at?(date)
+    events_affecting_membership = self.membership_events
+    member = false
+
+    events_affecting_membership.each do |event|
+      if event.date <= date
+        if event.event == 'Initiated' || event.event == 'Affiliated'
+          member = true
+        elsif event.event == 'Resigned' || event.event == 'Death'
+          member = false
+        end
+      else
+        break
+      end
+    end
+
+    member
   end
 
   private
   def create_profile
     self.create_profile!(user_id: self.id)
-    binding.pry
   end
 end
