@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :milestones
   has_many :posts
   has_many :comments
-  belongs_to :lodge
+  has_and_belongs_to_many :lodges
 
   accepts_nested_attributes_for :profile
 
