@@ -11,8 +11,9 @@ roles = %w[Admin Treasurer Secretary Candidate]
 tags = %w(test welcome woozle wozzle cthulhu fhtagn square compass elated frustrated vajra lodge)
 
 1.upto(2) do |i|
+  names = ["Vajra Lodge", "Schrodinger's Lodge"]
   date = Date.new(r.rand(2008..2009), r.rand(1..12), r.rand(1..30))
-  l = Lodge.create!(name: "vl", number: i, opened: date)
+  l = Lodge.create!(name: names[i-1], number: i, opened: date)
 end
 
 1.upto(5) do |i|
