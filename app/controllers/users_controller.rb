@@ -20,6 +20,8 @@ class UsersController < ApplicationController
     params[:user][:profile_attributes][:admin] = false
     
     @user = User.new user_params
+    lodge = Lodge.find(params[:user][:lodges])
+    @user.lodges.push(lodge)
     if @user.save
       flash[:success] = "#{@user.username} has been created! Please take a few moments to fill out their profile."
       redirect_to "/users/#{@user.id}"

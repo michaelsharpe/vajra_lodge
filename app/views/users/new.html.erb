@@ -13,6 +13,10 @@
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation %>
       </p>
+      <p>
+        <%= f.label :lodge %>
+        <%= f.collection_select :lodges, Lodge.all, :id, :name %>
+      </p>
       <%= f.fields_for :profile do |ff| %>
         <%= ff.hidden_field :user_id %>
         <p>
